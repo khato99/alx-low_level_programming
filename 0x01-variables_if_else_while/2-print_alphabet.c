@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * 
- * Return: Always 0 (Success)
+ * main - print alpha in lower case
+ * Return: Always 0
  */
 int main(void)
 {
