@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * cap_string - function that capitalize first character of word
@@ -8,12 +9,12 @@
 
 char *cap_string(char *str)
 {
-	int index = 0;
+	int i = 0;
 
-	while (str[++index])
+	while (str[i])
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
+		while (!(str[i] >= 'a' && str[i] <= 'z'))
+			i++;
 
 		if (str[i - 1] == ' ' ||
 				str[i - 1] == '\t' ||
