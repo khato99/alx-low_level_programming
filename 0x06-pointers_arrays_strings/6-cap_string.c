@@ -2,29 +2,34 @@
 #include <stdio.h>
 
 /**
- * cap_string - ...
- * @s: ...
- *
- * Return: cahr value
+ * cap_string - function that capitalize first character of word
+ * @str: strinf to capitalized string
+ * Return: returns the capitalized strings
  */
 
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	int a = 0, i;
-	int cspc = 13;
-	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', ')'};
+	int index = 0;
 
-	while (s[a])
+	while (str[++index])
 	{
-		i = 0;
-		while (i < cspc)
-		{
-			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[aa] <= 122))
-				s[a] -= 32;
-			i++;
-		}
+		while (!(str[index] >= 'a' && str[index] <= 'z'))
+			index++;
 
-		a++;
+		if (str[index - 1] == ' ' ||
+				str[index - 1] == '\t' ||
+				str[index - 1] == '\n' ||
+				str[index - 1] == ',' ||
+				str[index - 1] == ';' ||
+				str[index - 1] == '.' ||
+				str[index - 1] == '!' ||
+				str[index - 1] == '?' ||
+				str[index - 1] == '"' ||
+				str[index - 1] == '(' ||
+				str[index - 1] == ')' ||
+				str[index - 1] == '{' ||
+				str[index - 1] == '}')
+			str[index] -= 32;
 	}
-	return (s);
+	return (str);
 }
