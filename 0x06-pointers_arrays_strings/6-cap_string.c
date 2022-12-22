@@ -3,7 +3,7 @@
 
 /**
  * cap_string - function that capitalize first character of word
- * @str: strinf to capitalized string
+ * @str: string to capitalized string
  * Return: returns the capitalized strings
  */
 
