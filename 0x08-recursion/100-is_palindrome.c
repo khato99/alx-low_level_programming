@@ -1,37 +1,48 @@
 #include "main.h"
-
+int lengthc(char *s);
+int palindrome(char str[], int st, int end);
 /**
-* is_palindrome - returns true if the given string is a palindrome
-*@s: string to check
-*Return: true if the given string is a palindrome
-*/
-
+ * is_palindrome - Entry Point
+ * @s: input
+ * Return: 0
+ */
 int is_palindrome(char *s)
 {
-	int index = 0;
-	int len = find_strlen(s);
+	int len;
 
-	if (!(*s))
+	len = lengthc(s);
+
+	if (len == 0)
 		return (1);
-
-	return (check_palindrome(s, len, index));
+	return (palindrome(s, 0, len - 1));
 }
 
 /**
- * find_strlen - Returns the length of a string.
- * @s: The string to be measured.
- *
- * Return: The length of the string.
+ * lengthc - finds the length count
+ * @s: input
+ * Return: length size
  */
-int find_strlen(char *s)
+int lengthc(char *s)
 {
-	int len = 0;
+	if (*s != '\0')
+		return (1 + lengthc(s + 1));
+	return (0);
+}
 
-	if (*(s + len))
-	{
-		len++;
-		len += find_strlen(s + len);
-	}
-
-	return (len);
+/**
+ * palindrome - checks if start and end of string matches
+ * @str: string
+ * @st: start of string 0
+ * @end: end of string from is_palindrome, from lengthc
+ * Return: if str is a palindrome
+ */
+int palindrome(char str[], int st, int end)
+{
+	if (st >= end)
+		return (1);
+	if (str[st] != str[end])
+		return (0);
+	if (st <= end || st < end + 1)
+		return (palindrome(str, st + 1, end - 1));
+	return (1);
 }
